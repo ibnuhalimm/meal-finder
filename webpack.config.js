@@ -2,11 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        nav: './src/js/nav.js',
+        app: './src/app.js'
+    },
     mode: process.env.NODE_ENV,
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'app.js'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -41,7 +44,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: 'index.html'
+            filename: 'index.html',
+            chunks: [ 'nav', 'app' ]
         })
     ]
 };
