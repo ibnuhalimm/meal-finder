@@ -7,6 +7,10 @@ module.exports = {
         index: {
             import: './src/js/pages/index.js',
             filename: 'js/pages/[name].js'
+        },
+        category: {
+            import: './src/js/pages/category.js',
+            filename: 'js/pages/[name].js'
         }
     },
     mode: process.env.NODE_ENV,
@@ -46,9 +50,14 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './src/index.html',
+            template: './src/template.html',
             filename: 'index.html',
             chunks: [ 'nav', 'index' ]
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/template.html',
+            filename: 'category.html',
+            chunks: [ 'nav', 'category' ]
         })
     ]
 };
