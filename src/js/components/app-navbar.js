@@ -29,7 +29,7 @@ class AppNavbar extends HTMLElement {
                                     </a>
                                 </div>
                                 <div class="w-1/2 text-right md:hidden">
-                                    <button class="outline-none focus:outline-none py-1" id="__btnOpenSidebar">
+                                    <button class="outline-none focus:outline-none px-2 py-1" id="__btnOpenSidebar">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
                                         </svg>
