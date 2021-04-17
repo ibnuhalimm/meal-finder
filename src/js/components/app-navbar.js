@@ -18,10 +18,10 @@ class AppNavbar extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <header class="w-full fixed top-0 left-0 bg-yellow-500 text-white shadow-md">
-                <nav class="md:w-11/12 lg:w-3/4 md:mx-auto flex justify-between">
+            <nav class="w-full fixed top-0 left-0 bg-yellow-500 text-white shadow-md">
+                <div class="w-11/12 md:w-4/5 lg:w-3/4 mx-auto flex justify-between">
                     <div class="w-full md:w-2/3 py-4">
-                        <div class="w-11/12 md:w-full mx-auto">
+                        <div class="w-full mx-auto">
                             <div class="flex flex-row items-center justify-between">
                                 <div class="w-1/2">
                                     <a href="index.html" class="font-bold text-xl">
@@ -65,8 +65,8 @@ class AppNavbar extends HTMLElement {
                             </div>
                         </div>
                     </div>
-                </nav>
-            </header>
+                </div>
+            </nav>
         `;
 
         this.querySelector('#__btnOpenSidebar').addEventListener('click', this._openSidebarHandler);
