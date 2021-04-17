@@ -59,7 +59,7 @@ class AppNavbar extends HTMLElement {
                                 <a href="category.html" class="block w-full text-right md:text-center px-6 md:px-4 py-4 text-lg md:text-base text-yellow-500 md:text-white">
                                     Categories
                                 </a>
-                                <a href="#" class="block w-full text-right md:text-center px-6 md:px-4 py-4 text-lg md:text-base text-yellow-500 md:text-white">
+                                <a href="about.html" class="block w-full text-right md:text-center px-6 md:px-4 py-4 text-lg md:text-base text-yellow-500 md:text-white">
                                     About
                                 </a>
                             </div>

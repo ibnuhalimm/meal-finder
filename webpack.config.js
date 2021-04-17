@@ -11,6 +11,10 @@ module.exports = {
         category: {
             import: './src/js/pages/category.js',
             filename: 'js/pages/[name].js'
+        },
+        about: {
+            import: './src/js/pages/about.js',
+            filename: 'js/pages/[name].js'
         }
     },
     mode: process.env.NODE_ENV,
@@ -58,6 +62,11 @@ module.exports = {
             template: './src/template.html',
             filename: 'category.html',
             chunks: [ 'nav', 'category' ]
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/template.html',
+            filename: 'about.html',
+            chunks: [ 'nav', 'about' ]
         })
     ]
 };
