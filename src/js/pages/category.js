@@ -1,51 +1,40 @@
+import 'regenerator-runtime';
 import '../../css/style.css';
+import '../components/title-page.js';
 import '../components/content-page.js';
+import '../components/message-info.js';
+import '../components/category-list.js';
+import MealService from '../services/MealService';
 
-const loadContent = () => {
+
+const renderView = () => {
     const pageContent = document.querySelector('content-page');
-    pageContent.innerHTML = `<h1 class="text-2xl">Category</h1>`;
-    pageContent.innerHTML += `
-        <div class="mt-5">
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                <div class="bg-white shadow-md border border-solid border-gray-100 rounded-md">
-                    <div class="h-28 md:h-24 xl:h-40 bg-no-repeat bg-cover bg-center rounded-md rounded-bl-none rounded-br-none" style="background-image: url('https://www.themealdb.com/images/category/beef.png')"></div>
-                    <div class="px-6 py-4 text-center font-bold">
-                        <h2 class="truncate">Beef</h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md border border-solid border-gray-100 rounded-md">
-                    <div class="h-28 md:h-24 xl:h-40 bg-no-repeat bg-cover bg-center rounded-md rounded-bl-none rounded-br-none" style="background-image: url('https://www.themealdb.com/images/category/chicken.png')"></div>
-                    <div class="px-6 py-4 text-center font-bold">
-                        <h2 class="truncate">Chicken</h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md border border-solid border-gray-100 rounded-md">
-                    <div class="h-28 md:h-24 xl:h-40 bg-no-repeat bg-cover bg-center rounded-md rounded-bl-none rounded-br-none" style="background-image: url('https://www.themealdb.com/images/category/dessert.png')"></div>
-                    <div class="px-6 py-4 text-center font-bold">
-                        <h2 class="truncate">Dessert</h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md border border-solid border-gray-100 rounded-md">
-                    <div class="h-28 md:h-24 xl:h-40 bg-no-repeat bg-cover bg-center rounded-md rounded-bl-none rounded-br-none" style="background-image: url('https://www.themealdb.com/images/category/lamb.png')"></div>
-                    <div class="px-6 py-4 text-center font-bold">
-                        <h2 class="truncate">Lamb</h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md border border-solid border-gray-100 rounded-md">
-                    <div class="h-28 md:h-24 xl:h-40 bg-no-repeat bg-cover bg-center rounded-md rounded-bl-none rounded-br-none" style="background-image: url('https://www.themealdb.com/images/category/miscellaneous.png')"></div>
-                    <div class="px-6 py-4 text-center font-bold">
-                        <h2 class="truncate">Miscellaneous</h2>
-                    </div>
-                </div>
-                <div class="bg-white shadow-md border border-solid border-gray-100 rounded-md">
-                    <div class="h-28 md:h-24 xl:h-40 bg-no-repeat bg-cover bg-center rounded-md rounded-bl-none rounded-br-none" style="background-image: url('https://www.themealdb.com/images/category/pasta.png')"></div>
-                    <div class="px-6 py-4 text-center font-bold">
-                        <h2 class="truncate">Pasta</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+    const titlePage = document.createElement('title-page');
+    const messageInfo = document.createElement('message-info');
+    const categoryList = document.createElement('category-list');
+
+    titlePage.text = 'Categories';
+    pageContent.appendChild(titlePage);
+    pageContent.appendChild(messageInfo);
+
+    const getCategories = async () => {
+        categoryList.meals = null;
+        messageInfo.text = 'Loading...';
+
+        try {
+            const categories = await MealService.getCategories();
+            categoryList.categories = categories;
+
+            messageInfo.text = null;
+            pageContent.appendChild(categoryList);
+
+        } catch (error) {
+            messageInfo.text = error;
+
+        }
+    };
+
+    getCategories();
 };
 
-document.addEventListener('DOMContentLoaded', loadContent);
+document.addEventListener('DOMContentLoaded', renderView);
