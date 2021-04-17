@@ -5,7 +5,7 @@ const loadContent = () => {
     const pageContent = document.querySelector('content-page');
     pageContent.innerHTML = `<h1 class="text-2xl">Home</h1>`;
     pageContent.innerHTML += `
-        <div class="mt-5 w-full md:w-1/2 lg:w-1/3">
+        <div class="mt-5 w-full md:w-1/2 lg:w-1/3 bg-white">
             <div class="flex flex-row border border-solid border-gray-300 rounded-md px-5 py-3">
                 <input type="text" class="w-full outline-none focus:outline-none" placeholder="Find any meal..." />
                 <button type="submit" class="ml-3 outline-none focus:outline-none">
