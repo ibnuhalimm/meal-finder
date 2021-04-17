@@ -6,9 +6,8 @@
   "scripts": {
     "clean": "npx del-cli dist/*",
     "build": "npm run clean && cross-env NODE_ENV=production webpack",
-    "build:prod": "npm run clean && cross-env NODE_ENV=production webpack",
-    "build:dev": "cross-env NODE_ENV=development webpack",
-    "start-dev": "cross-env NODE_ENV=development webpack serve"
+    "prod": "npm run build",
+    "dev": "cross-env NODE_ENV=development webpack serve"
   },
   "repository": {
     "type": "git",
