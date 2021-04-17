@@ -1,4 +1,4 @@
-import './css/style.css';
+import '../../css/style.css';
 
 const loadContent = () => {
     const pageContent = document.querySelector('main');
