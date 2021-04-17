@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    @apply text-gray-800;
+}
 
 main {
-    @apply mt-20;
+    @apply my-20;
 }
+
 content-page {
     @apply block w-11/12 mx-auto mt-20;
 }
