@@ -1,3 +1,4 @@
+import 'regenerator-runtime';
 import '../../css/style.css';
 import '../components/search-bar.js';
 import '../components/meal-list.js';
