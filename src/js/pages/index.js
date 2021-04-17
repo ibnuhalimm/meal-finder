@@ -5,7 +5,7 @@ import '../components/message-info.js';
 import MealService from '../services/MealService';
 
 
-const loadContent = () => {
+const renderView = () => {
     const searchBar = document.createElement('search-bar');
     const pageContent = document.querySelector('content-page');
     const mealList = document.createElement('meal-list');
@@ -37,4 +37,4 @@ const loadContent = () => {
     searchBar.onClickButton = getMeals;
 };
 
-document.addEventListener('DOMContentLoaded', loadContent);
+document.addEventListener('DOMContentLoaded', renderView);
