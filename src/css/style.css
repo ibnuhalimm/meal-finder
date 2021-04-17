@@ -14,9 +14,19 @@ content-page {
     @apply block w-11/12 mx-auto mt-20;
 }
 
+meal-list {
+    @apply grid grid-cols-1 gap-6;
+}
+
+@screen sm {
+    meal-list {
+        @apply grid-cols-3;
+    }
+}
+
 @screen md {
-    content-page {
-        @apply w-4/5;
+    meal-list {
+        @apply grid-cols-3;
     }
 }
 
@@ -24,7 +34,18 @@ content-page {
     content-page {
         @apply w-3/4;
     }
+
+    meal-list {
+        @apply grid-cols-3;
+    }
 }
+
+@screen xl {
+    meal-list {
+        @apply grid-cols-4;
+    }
+}
+
 
 .right-sidebar--close {
     transform: translateX(100%);
