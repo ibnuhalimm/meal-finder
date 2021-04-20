@@ -1,10 +1,21 @@
 class MealItem extends HTMLElement {
     connectedCallback() {
+        this._buttonText = 'View Details';
         this.render();
     }
 
     set meal(mealObject) {
         this._meal = mealObject;
+        this.render();
+    }
+
+    set buttonText(buttonText) {
+        this._buttonText = buttonText;
+        this.render();
+    }
+
+    set viewMealHandler(event) {
+        this._viewMealHandler = event;
         this.render();
     }
 
@@ -17,11 +28,13 @@ class MealItem extends HTMLElement {
                 </div>
                 <div class="text-center pt-1 pb-6">
                     <button class="bg-transparent text-yellow-500 outline-none focus:outline-none">
-                        View Details
+                        ${this._buttonText}
                     </button>
                 </div>
             </div>
         `;
+
+        this.querySelector('button').addEventListener('click', this._viewMealHandler);
     }
 }
 

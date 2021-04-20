@@ -31,6 +31,22 @@ class MealService {
                 }
             });
     }
+
+
+    static mealDetail(mealId) {
+        return fetch(`${API.viewMeal}?i=${mealId}`)
+            .then(response => {
+                return response.json();
+            })
+            .then(responseJson => {
+                if (responseJson.meals) {
+                    return Promise.resolve(responseJson.meals[0]);
+                }
+                else {
+                    return Promise.reject(`Sorry, we unable to get the meal data.`);
+                }
+            });
+    }
 }
 
 export default MealService;

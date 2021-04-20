@@ -55,6 +55,9 @@ category-list {
     }
 }
 
+body.modal-active {
+    @apply overflow-y-hidden;
+}
 
 .right-sidebar--close {
     transform: translateX(100%);
